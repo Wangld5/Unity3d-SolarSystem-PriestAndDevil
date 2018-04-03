@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>56</x>
+      <y>0</y>
+      <w>231</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+UserAction
+--
+void moveboat();
+void isClickChar (MyCharacterController tem_char);
+		void restart();
+		void pause();
+		void Coninu ();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>399</x>
+      <y>0</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+SceneController
+--
+void loadResources();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>63</x>
+      <y>210</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interaction View&gt;&gt;
+UserGUI
+--
+private UserAction action;
+	private GUIStyle MyStyle;
+	private GUIStyle MyButtonStyle;
+	public int if_win_or_not;
+--
+void Start();
+void Restart();
+void IsPause();
+void OnGUI();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>238</x>
+      <y>210</y>
+      <w>154</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interaction View&gt;&gt;
+ClickGUI
+--
+UserAction action;
+	MyCharacterController character;
+--
+void setController();
+void Start();
+void OnMouseDown();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>126</x>
+      <y>126</y>
+      <w>119</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+
+
+currentSceneController</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>217</x>
+      <y>126</y>
+      <w>154</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+
+
+currentSceneController</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>434</x>
+      <y>210</y>
+      <w>196</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;SceneController&gt;&gt;
+MySceneController
+--
+readonly Vector3 water_pos
+	UserGUI user;
+	public CoastController fromCoast;
+	public CoastController toCoast;
+	public BoatController boat;
+	private MyCharacterController[] characters;
+--
+void Awake();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>455</x>
+      <y>126</y>
+      <w>21</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>168</x>
+      <y>126</y>
+      <w>308</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;420.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>707</x>
+      <y>210</y>
+      <w>161</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Singlton&gt;&gt;
+Director
+--
+private static Director _instance;
+		public SceneController curren
+--
+public static Director get_Instance();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>539</x>
+      <y>56</y>
+      <w>259</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;350.0;10.0;350.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>623</x>
+      <y>315</y>
+      <w>98</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>119</x>
+      <y>336</y>
+      <w>686</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>960.0;10.0;960.0;110.0;10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>308</x>
+      <y>336</y>
+      <w>21</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>511</x>
+      <y>336</y>
+      <w>21</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>441</x>
+      <y>441</y>
+      <w>217</w>
+      <h>245</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;GameModel&gt;&gt;
+MyCharacterController
+--
+readonly GameObject character;
+		readonly moveable Cmove;
+		readonly ClickGUI clickgui;
+		readonly int Ctype;//0-&gt;priset, 1-&gt;devil
+		private bool isOnboat;
+		private CoastController coastcontroller;
+--
+public MyCharacterController(string Myname);
+public int getType();
+public void setName(string name);
+public string getName();
+public void setPosition(Vector3 postion);
+public void moveToPosition(Vector3 _dest);
+public void getOnBoat(BoatController tem_boat);
+public void getOnCoast(CoastController coastCon);
+public bool _isOnBoat();
+public CoastController getCoastController();
+public void reset();
+public void Mypause();
+public void MyConti();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>721</x>
+      <y>427</y>
+      <w>196</w>
+      <h>266</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;GameModel&gt;&gt;
+BoatController
+--
+readonly GameObject boat;
+		readonly moveable Cmove;
+		readonly Vector3 fromPos;
+		readonly Vector3 toPos;
+		readonly Vector3[] from_pos;
+		readonly Vector3[] to_pos;
+		private int TFflag;//-1-&gt;to, 1-&gt;from
+		private MyCharacterController[] passenger ;
+--
+public BoatController();
+public void boatMove();
+public void getOnBoat(MyCharacterController tem_cha);
+public MyCharacterController getOffBoat(string object_name);
+public int getEmptyIndex();
+public bool IfEmpty();
+public Vector3 getEmptyPosition();
+public GameObject getGameObject();
+public int getTFflag();
+public int[] getCharacterNum();
+public void reset();
+public void Mypause();
+public void MyConti();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>224</x>
+      <y>441</y>
+      <w>147</w>
+      <h>196</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;GameModel&gt;&gt;
+CoastController
+--
+readonly GameObject coast;
+		readonly Vector3 from_pos;
+		readonly Vector3 to_pos;
+		readonly Vector3[] postion;
+		private MyCharacterController[] passengerPlaner;
+		readonly int TFflag;//-1-&gt;to, 1-&gt;from
+--
+public CoastController(string to_or_from);
+public int getTFflag();
+public MyCharacterController getOffCoast(string object_name);
+public int getEmptyIndex();
+public Vector3 getEmptyPosition();
+public void getOnCoast(MyCharacterController myCharacter);
+public int[] getCharacterNum();
+public void reset();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>364</x>
+      <y>525</y>
+      <w>91</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>364</x>
+      <y>553</y>
+      <w>91</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>651</x>
+      <y>518</y>
+      <w>84</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>287</x>
+      <y>385</y>
+      <w>245</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0;330.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>511</x>
+      <y>385</y>
+      <w>308</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>420.0;60.0;420.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>42</x>
+      <y>441</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;GameModel&gt;&gt;
+moveable
+--
+readonly float move_speed;
+		private int move_to_where;
+		private Vector3 dest;
+		private Vector3 middle;
+		public static int cn_move;
+--
+void Update();
+public void SetDestination(Vector3 _dest);</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>105</x>
+      <y>567</y>
+      <w>455</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>630.0;170.0;630.0;200.0;10.0;200.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>539</x>
+      <y>686</y>
+      <w>280</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>380.0;10.0;380.0;30.0;10.0;30.0</additional_attributes>
+  </element>
+</diagram>

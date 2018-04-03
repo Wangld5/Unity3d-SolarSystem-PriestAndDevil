@@ -59,9 +59,7 @@ namespace Com.Engine
 			else{
 				middle = _dest;
 				dest = _dest;
-				if (_dest.y == transform.position.y)
-					move_to_where = 2;
-				else if (_dest.y < transform.position.y) {
+				if (_dest.y < transform.position.y) {
 					middle.y = transform.position.y;
 				} else {
 					middle.x = transform.position.x;
