@@ -9,13 +9,15 @@ public class MySceneController : MonoBehaviour, SceneController, UserAction{
 	public CoastController fromCoast;
 	public CoastController toCoast;
 	public BoatController boat;
-	private MyCharacterController[] characters;
+	//private MyCharacterController[] characters;
+	private List<MyCharacterController> team;
 
 	void Awake(){
 		Director director = Director.get_Instance ();
 		director.curren = this;
 		user = gameObject.AddComponent<UserGUI> () as UserGUI;
-		characters = new MyCharacterController[6];
+		//characters = new MyCharacterController[6];
+		team = new List<MyCharacterController>();
 		loadResources ();
 	}
 	public void loadResources(){
@@ -32,7 +34,7 @@ public class MySceneController : MonoBehaviour, SceneController, UserAction{
 			tem.setPosition (fromCoast.getEmptyPosition ());
 			tem.getOnCoast (fromCoast);
 			fromCoast.getOnCoast (tem);
-			characters [i] = tem;
+			team.Add (tem);
 		}
 		for (int i = 0; i < 3; i++) {
 			MyCharacterController tem = new MyCharacterController ("devil");
@@ -40,7 +42,7 @@ public class MySceneController : MonoBehaviour, SceneController, UserAction{
 			tem.setPosition (fromCoast.getEmptyPosition ());
 			tem.getOnCoast (fromCoast);
 			fromCoast.getOnCoast (tem);
-			characters [i+3] = tem;
+			team.Add (tem);
 		}
 	}
 	public void moveboat(){
@@ -82,21 +84,21 @@ public class MySceneController : MonoBehaviour, SceneController, UserAction{
 		boat.reset ();
 		fromCoast.reset ();
 		toCoast.reset ();
-		for (int i = 0; i < characters.Length; i++) {
-			characters [i].reset ();
+		foreach (MyCharacterController i in team) {
+			i.reset ();
 		}
 		moveable.cn_move = 0;
 	}
 	public void pause(){
 		boat.Mypause ();
-		for (int i = 0; i < characters.Length; i++) {
-			characters [i].Mypause ();
+		foreach (MyCharacterController i in team) {
+			i.Mypause();
 		}
 	}
 	public void Coninu (){
 		boat.MyConti ();
-		for (int i = 0; i < characters.Length; i++) {
-			characters [i].MyConti();
+		foreach (MyCharacterController i in team) {
+			i.MyConti();
 		}
 	}
 	private int checkGameOver(){
